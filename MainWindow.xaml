@@ -1,0 +1,36 @@
+﻿<Window x:Class="WpfApp.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <Grid.RowDefinitions>
+            <!-- Row for ComboBox displaying shopper's email and Basket Id -->
+            <RowDefinition Height="Auto" />
+            <!-- Row for DataGrid displaying basketItem details -->
+            <RowDefinition Height="*" />
+            <!-- Row for Button to add new item to order -->
+            <RowDefinition Height="Auto" />
+        </Grid.RowDefinitions>
+
+        <!-- ComboBox to display shopper's email and Basket Id -->
+        <ComboBox Grid.Row="0" ItemsSource="{Binding Shoppers}" DisplayMemberPath="Email" SelectedItem="{Binding SelectedShopper}" />
+
+        <!-- DataGrid to display basketItem details -->
+        <DataGrid Grid.Row="1" ItemsSource="{Binding BasketItems}" AutoGenerateColumns="False">
+            <DataGrid.Columns>
+                <!-- Column for displaying Product Name -->
+                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" />
+                <!-- Column for displaying Quantity -->
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                <!-- Add more columns as needed -->
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Button to add new item to order -->
+        <Button Grid.Row="2" Content="Add Item to Order" Command="{Binding AddItemToOrderCommand}" />
+    </Grid>
+</Window>

@@ -1,0 +1,26 @@
+<Window x:Class="WpfApp.ListOrderDetailsView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp"
+        mc:Ignorable="d"
+        Title="List Order Details" Height="450" Width="800">
+    <Grid>
+        <DataGrid x:Name="dataGridOrderDetails" AutoGenerateColumns="False" CanUserAddRows="False">
+            <DataGrid.Columns>
+                <!-- Column for displaying Order ID -->
+                <DataGridTextColumn Header="Order ID" Binding="{Binding OrderId}" />
+                <!-- Column for displaying Shopper Email -->
+                <DataGridTextColumn Header="Shopper Email" Binding="{Binding ShopperEmail}" />
+                <!-- Column for displaying Basket ID -->
+                <DataGridTextColumn Header="Basket ID" Binding="{Binding BasketId}" />
+                <!-- Column for displaying Product Name -->
+                <DataGridTextColumn Header="Product Name" Binding="{Binding ProductName}" />
+                <!-- Column for displaying Quantity -->
+                <DataGridTextColumn Header="Quantity" Binding="{Binding Quantity}" />
+                <!-- Add more columns as needed -->
+            </DataGrid.Columns>
+        </DataGrid>
+    </Grid>
+</Window>
